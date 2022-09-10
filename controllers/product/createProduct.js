@@ -25,7 +25,7 @@ module.exports = {
         isActive: productModelData.is_active,
       };
 
-      return response(res, 200, 'Get Detail Product Success', result);
+      return response(res, 200, 'Create Product Success', result);
     } catch (error) {
       console.log(error);
       return internalServerError(res, error.message);

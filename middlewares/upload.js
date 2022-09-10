@@ -1,7 +1,5 @@
 const multer = require('multer');
 const fs = require('fs');
-const {notFound} = require('@helpers/errorResponse');
-const {tbl_products: productModel} = require('@models');
 
 const productPictureStorage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -12,13 +10,9 @@ const productPictureStorage = multer.diskStorage({
     cb(null, path);
   },
   filename: async function(req, file, cb) {
-    const {id} = req.params;
-    const productModelData = await productModel.findOne({where: {id, is_active: true}});
-    if (!productModelData) return notFound(res, 'product Not Found');
-
-    const fileNameProduct = 'img-product-' + id + '.png';
+    const productModelData = req.productModelData;
+    const fileNameProduct = 'img-product-' + productModelData.id + '.png';
     req.fileNameProduct = fileNameProduct;
-    req.id = id;
     cb(null, fileNameProduct);
   },
 });

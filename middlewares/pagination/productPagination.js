@@ -38,7 +38,7 @@ module.exports = {
             attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
             page: +page,
             paginate: +size,
-            order: [['name', sortAscorDesc]],
+            order: [['qty', sortAscorDesc]],
           };
         case 'expiredAt':
           options = {
@@ -46,7 +46,16 @@ module.exports = {
             attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
             page: +page,
             paginate: +size,
-            order: [['name', sortAscorDesc]],
+            order: [['expired_at', sortAscorDesc]],
+          };
+          break;
+        case 'id':
+          options = {
+            where: {is_active: true},
+            attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
+            page: +page,
+            paginate: +size,
+            order: [['id', sortAscorDesc]],
           };
           break;
         default:
