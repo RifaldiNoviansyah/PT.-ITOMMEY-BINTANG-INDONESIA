@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "3b3d6b52-891e-4a47-b9fa-ab0561959fd4",
+		"name": "test pt itommey bintang indonesia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/get/product?page=1&sort=&sortBy=id&size=5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"get",
+						"product"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": ""
+						},
+						{
+							"key": "sortBy",
+							"value": "id"
+						},
+						{
+							"key": "sortBy",
+							"value": "name",
+							"disabled": true
+						},
+						{
+							"key": "sortBy",
+							"value": "qty",
+							"disabled": true
+						},
+						{
+							"key": "sortBy",
+							"value": "expiredAt",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/get/product/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"get",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleted",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/delete/product/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Product 1\",\n    \"qty\": 100,\n    \"expiredAt\": \"2022-09-11\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/put/product/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"put",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload picture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/rifaldinoviansyah/Pictures/Wallpapers/20704_1_miscellaneous_digital_art_creepy_creepy_robots-1068x668.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/upload/product/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"upload",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Product 6\",\n    \"qty\": 1,\n    \"expiredAt\": \"2022-09-11\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/add/product",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"add",
+						"product"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
