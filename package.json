@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "test pt itommey bintang indonesia",
   "main": "index.js",
+  "_moduleAliases": {
+    "@helpers": "./helpers",
+    "@models": "./db/models",
+    "@config": "./config"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,10 +23,19 @@
   },
   "homepage": "https://github.com/RifaldiNoviansyah/PT.-ITOMMEY-BINTANG-INDONESIA#readme",
   "dependencies": {
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "express-validator": "^6.14.2"
+    "express-validator": "^6.14.2",
+    "module-alias": "^2.2.2",
+    "path": "^0.12.7",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.6",
+    "sequelize-paginate": "^1.1.6"
   },
   "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.19"
   }
 }

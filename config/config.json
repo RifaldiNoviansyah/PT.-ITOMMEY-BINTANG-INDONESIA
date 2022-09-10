@@ -1,0 +1,26 @@
+{
+    "dev": {
+      "username": "postgres",
+      "password": "10115321",
+      "database": "test_dev_ptItommeyBintangIndonesia",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    },
+    "staging": {
+      "username": "root",
+      "password": null,
+      "database": "test_stag_ptItommeyBintangIndonesia",
+      "host": "127.0.0.1",
+      "dialect": "postgres",
+      "logging": false
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "test_prod_ptItommeyBintangIndonesia",
+      "host": "127.0.0.1",
+      "dialect": "postgres",
+      "logging": false
+    }
+  }
+  
