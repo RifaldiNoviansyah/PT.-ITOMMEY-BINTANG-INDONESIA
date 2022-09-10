@@ -5,8 +5,9 @@
   "main": "index.js",
   "_moduleAliases": {
     "@helpers": "./helpers",
-    "@models": "./db/models",
-    "@config": "./config"
+    "@models": "./databases/models",
+    "@config": "./config",
+    "@controllers": "./controllers"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

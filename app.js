@@ -3,8 +3,10 @@ require('module-alias/register');
 require('dotenv').config();
 
 const db = require('@helpers/database.js');
-
+const apiRoute = require('./routes/api/apiRouteIndex');
 const app = express();
+
+app.use('/', apiRoute);
 app.get('*', (req, res) => res.status(200).send(
     {message: 'Welcome to API Test PT ITOMMEY BINTANG INDONESIA'}));
 
