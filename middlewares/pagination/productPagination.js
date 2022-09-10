@@ -8,11 +8,12 @@ module.exports = {
       const {sortBy, sort} = req.query;
       let {page, size} = req.query;
       let options = {};
-      let sortAscorDesc = '';
+      let sortAscDesc = '';
       page = +page || 1;
       size = +size || 5;
 
-      sort === '' || sort.toUpperCase() === 'ASC' ? sortAscorDesc = 'ASC' : sortAscorDesc = 'DESC';
+      if (sort !== 'ASC' && sort !== 'DESC') return response(res, 422, 'sort only ASC or DESC');
+      sort.toUpperCase() === 'ASC' ? sortAscDesc = 'ASC' : sortAscDesc = 'DESC';
 
       switch (sortBy) {
         case '':
@@ -21,7 +22,7 @@ module.exports = {
             attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
             page: +page,
             paginate: +size,
-            order: [['name', sortAscorDesc]],
+            order: [['name', sortAscDesc]],
           };
           break;
         case 'name':
@@ -30,7 +31,7 @@ module.exports = {
             attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
             page: +page,
             paginate: +size,
-            order: [['name', sortAscorDesc]],
+            order: [['name', sortAscDesc]],
           };
         case 'qty':
           options = {
@@ -38,7 +39,7 @@ module.exports = {
             attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
             page: +page,
             paginate: +size,
-            order: [['qty', sortAscorDesc]],
+            order: [['qty', sortAscDesc]],
           };
         case 'expiredAt':
           options = {
@@ -46,7 +47,7 @@ module.exports = {
             attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
             page: +page,
             paginate: +size,
-            order: [['expired_at', sortAscorDesc]],
+            order: [['expired_at', sortAscDesc]],
           };
           break;
         case 'id':
@@ -55,11 +56,11 @@ module.exports = {
             attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
             page: +page,
             paginate: +size,
-            order: [['id', sortAscorDesc]],
+            order: [['id', sortAscDesc]],
           };
           break;
         default:
-          return response(res, 404, 'sorting can only be based on name, qty, expiredAt', []);
+          return response(res, 404, 'sorting can only be based on name, qty, expiredAt, id', []);
       }
 
       const {

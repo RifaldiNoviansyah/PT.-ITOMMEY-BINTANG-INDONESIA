@@ -1,0 +1,201 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Test Pt Itommey Bintang Indonesia",
+      "description": "Test Pt Itommey_Bintang_Indonesia",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "product",
+        "description": "API for product in the system"
+      }
+    ],
+    "schemes": ["http","https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+      "/get/product?": {
+        "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "required": true,
+              "description": "page for showing which page",
+              "type": "integer"
+            },
+            {
+                "name": "size",
+                "in": "query",
+                "required": true,
+                "description": "size for shows how much data to display per page",
+                "type": "integer"
+            },
+            {
+                "name": "sort",
+                "in": "query",
+                "description": "sort for sorting data ASC for ascending and DESC for descending",
+                "type": "STRING"
+            },
+            {
+                "name": "sortBy",
+                "in": "query",
+                "description": "sortBy for sorting data by data name, qty, expiredAt, id",
+                "type": "STRING"
+            }
+          ],
+        "get": {
+          "tags": ["GET"],
+          "summary": "Get Index Product in system",
+          "responses": {
+            "200": {
+              "description": "Get Index Product Success",
+              "schema": {
+                "$ref": "#/definitions/tbl_products"
+              }
+            }
+          }
+        }
+      },
+      "/get/product/{id}": {
+        "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id primary key product",
+              "type": "integer"
+            }
+          ],
+        "get": {
+          "tags": ["GET"],
+          "summary": "Get Detail Product in system",
+          "responses": {
+            "200": {
+              "description": "Get Detail Product Success",
+              "schema": {
+                "$ref": "#/definitions/tbl_product"
+              }
+            }
+          }
+        }
+      },
+      "/add/product": {
+        "post": {
+          "tags": ["POST"],
+          "description": "Create new product in system",
+          "parameters": [
+            {
+                "name": "product",
+                "in": "body",
+                "description": "name Product that we want to create",
+                "schema": {
+                    "$ref": "#/definitions/tbl_product"
+                  }
+            }
+          ],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "Create Product Success",
+              "schema": {
+                "$ref": "#/definitions/tbl_product"
+              }
+            }
+          }
+        }
+      },
+      "/delete/product/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id of Product that we want to find",
+            "type": "integer"
+          }
+        ],
+        "delete": {
+          "summary": "Delete Product with given id",
+          "tags": [
+            "DELETED"
+          ],
+          "responses": {
+            "200": {
+              "description": "Product is deleted",
+              "schema": {
+                "$ref": "#/definitions/tbl_product"
+              }
+            }
+          }
+        }
+      },
+      "/put/product/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id of Product that we want to find",
+            "type": "integer"
+          },
+          {
+            "name": "product",
+            "in": "body",
+            "description": "name Product that we want to create",
+            "schema": {
+                "$ref": "#/definitions/tbl_product"
+              }
+          }
+        ],
+        "put": {
+          "summary": "Updated Product with given id",
+          "tags": [
+            "Updated"
+          ],
+          "responses": {
+            "200": {
+              "description": "Product is Updated",
+              "schema": {
+                "$ref": "#/definitions/tbl_product"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "tbl_product": {
+        "required": ["id", "name", "qty", "picture", "expiredAt", "isActive"],
+        "properties": {
+          "id": {
+            "type": "BIGINT"
+          },
+          "name": { 
+            "type": "STRING"
+          },
+          "qty": {  
+            "type": "INTEGER"
+          },
+          "picture": {
+            "type": "TEXT"
+          },
+          "expiredAt": {    
+            "type": "DATEONLY"
+          },
+          "isActive": {
+            "type": "BOOLEAN"
+          }
+        },
+        "tbl_products": {
+            "type": "array",
+            "$ref": "#/definitions/tbl_product"
+          }
+      }
+    }
+  }
