@@ -1,3 +1,4 @@
+const sequelizePaginate = require('sequelize-paginate');
 const {Model} = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
@@ -23,5 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     createdAt: false,
     updatedAt: false,
   });
+  sequelizePaginate.paginate(tbl_products);
   return tbl_products;
 };

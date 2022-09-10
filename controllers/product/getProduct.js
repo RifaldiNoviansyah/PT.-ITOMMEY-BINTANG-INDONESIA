@@ -6,7 +6,7 @@ module.exports = {
     try {
       const {id} = req.params;
       const productModelData = await productModel.findOne({
-        where: {id, isActive: true},
+        where: {id, is_active: true},
         attributtes: ['id', 'name', 'qty', 'picture', 'expired_at', 'is_active'],
       });
       if (!productModelData) return notFound(res, 'product Not Found');
