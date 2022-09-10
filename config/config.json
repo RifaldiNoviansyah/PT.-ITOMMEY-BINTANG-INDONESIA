@@ -1,5 +1,5 @@
 {
-    "dev": {
+    "development": {
       "username": "postgres",
       "password": "10115321",
       "database": "test_dev_ptItommeyBintangIndonesia",
@@ -22,5 +22,4 @@
       "dialect": "postgres",
       "logging": false
     }
-  }
-  
+}  

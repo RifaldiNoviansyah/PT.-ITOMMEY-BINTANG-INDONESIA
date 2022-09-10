@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 const Sequelize = require('sequelize');
-const config = require('@config/config.json')[process.env.NODE_ENV || 'dev'];
+const config = require('@config/config.json')[process.env.NODE_ENV || 'development'];
 const {username, database, password, host, dialect, logging} = config;
 
 const sequelize = new Sequelize(database, username, password, {
