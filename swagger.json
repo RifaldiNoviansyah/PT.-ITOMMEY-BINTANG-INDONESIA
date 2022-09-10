@@ -167,6 +167,37 @@
             }
           }
         }
+      },
+      "/upload/product/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id of Product that we want to find",
+            "type": "integer"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "type": "file",
+            "description": "upload picture Product"
+          }
+        ],
+        "post": {
+          "summary": "Upload Product with given id",
+          "tags": [
+            "Upload"
+          ],
+          "responses": {
+            "200": {
+              "description": "Product picture is Upload",
+              "schema": {
+                "$ref": "#/definitions/tbl_product"
+              }
+            }
+          }
+        }
       }
     },
     "definitions": {
