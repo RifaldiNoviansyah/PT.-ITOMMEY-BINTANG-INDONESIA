@@ -1,0 +1,26 @@
+{
+  "name": "pt_itommey_bintang_indonesia",
+  "version": "1.0.0",
+  "description": "test pt itommey bintang indonesia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RifaldiNoviansyah/PT.-ITOMMEY-BINTANG-INDONESIA.git"
+  },
+  "author": "rifaldi noviansyah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RifaldiNoviansyah/PT.-ITOMMEY-BINTANG-INDONESIA/issues"
+  },
+  "homepage": "https://github.com/RifaldiNoviansyah/PT.-ITOMMEY-BINTANG-INDONESIA#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
