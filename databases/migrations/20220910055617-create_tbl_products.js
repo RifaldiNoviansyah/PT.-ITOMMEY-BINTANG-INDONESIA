@@ -19,11 +19,11 @@ module.exports = {
       picture: {
         type: Sequelize.TEXT,
       },
-      expired_at: {
+      expiredAt: {
         allowNull: false,
         type: Sequelize.DATEONLY,
       },
-      is_active: {
+      isActive: {
         type: Sequelize.BOOLEAN,
         default: true,
       },
