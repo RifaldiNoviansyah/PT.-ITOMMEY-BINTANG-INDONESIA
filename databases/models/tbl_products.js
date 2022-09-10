@@ -1,5 +1,3 @@
-/* eslint-disable require-jsdoc */
-/* eslint-disable camelcase */
 const {Model} = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
@@ -7,16 +5,23 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {}
   }
   tbl_products.init({
-    id: DataTypes.BIGINT,
     name: DataTypes.STRING,
-    qty: DataTypes.INT,
+    qty: DataTypes.INTEGER,
     picture: DataTypes.TEXT,
-    expiredAt: DataTypes.DATEONLY,
-    isActive: DataTypes.BOOLEAN,
+    expired_at: {
+      type: DataTypes.DATEONLY,
+      field: 'expiredAt',
+    },
+    is_active: {
+      type: DataTypes.BOOLEAN,
+      field: 'isActive',
+    },
   }, {
     sequelize,
     modelName: 'tbl_products',
     underscored: true,
+    createdAt: false,
+    updatedAt: false,
   });
   return tbl_products;
 };

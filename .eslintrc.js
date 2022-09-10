@@ -11,7 +11,7 @@ module.exports = {
     'sourceType': 'module',
   },
   'rules': {
-    'new-cap': ['of', {'newIsCap': true}],
+    'new-cap': ['warn', {'newIsCap': true}],
     'max-len': ['warn', {'code': 200, 'tabWidth': 4}],
   },
 };

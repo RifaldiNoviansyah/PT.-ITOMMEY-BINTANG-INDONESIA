@@ -9,19 +9,21 @@ module.exports = {
         type: Sequelize.BIGINT,
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       qty: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       picture: {
         type: Sequelize.TEXT,
       },
-      expiredAt: {
+      expired_at: {
         allowNull: false,
         type: Sequelize.DATEONLY,
       },
-      isActive: {
+      is_active: {
         type: Sequelize.BOOLEAN,
         default: true,
       },

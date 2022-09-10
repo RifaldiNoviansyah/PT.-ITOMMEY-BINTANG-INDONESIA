@@ -4,8 +4,9 @@ const Sequelize = require('sequelize');
 
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(`${__dirname}@helpers/config.json`)[env];
-const db = {};
+const config = require('@config/config.json')[env];
+
+const databases = {};
 
 let sequelize;
 if (config.use_env_variable) {
@@ -19,16 +20,16 @@ fs
     .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
     .forEach((file) => {
       const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-      db[model.name] = model;
+      databases[model.name] = model;
     });
 
-Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
+Object.keys(databases).forEach((modelName) => {
+  if (databases[modelName].associate) {
+    databases[modelName].associate(databases);
   }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+databases.sequelize = sequelize;
+databases.Sequelize = Sequelize;
 
-module.exports = db;
+module.exports = databases;
