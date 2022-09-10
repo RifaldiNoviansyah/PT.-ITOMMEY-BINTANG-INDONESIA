@@ -1,6 +1,6 @@
 const multer = require('multer');
 const fs = require('fs');
-
+const Buffer = require('buffer/').Buffer;
 const productPictureStorage = multer.diskStorage({
   destination: function(req, file, cb) {
     const path = './file/picture/product';
@@ -10,6 +10,7 @@ const productPictureStorage = multer.diskStorage({
     cb(null, path);
   },
   filename: async function(req, file, cb) {
+    const base64Data = new Buffer(JSON.stringify(file)).toString('base64');
     const productModelData = req.productModelData;
     const fileNameProduct = 'img-product-' + productModelData.id + '.png';
     req.fileNameProduct = fileNameProduct;

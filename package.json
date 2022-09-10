@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/RifaldiNoviansyah/PT.-ITOMMEY-BINTANG-INDONESIA#readme",
   "dependencies": {
+    "buffer": "^6.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
