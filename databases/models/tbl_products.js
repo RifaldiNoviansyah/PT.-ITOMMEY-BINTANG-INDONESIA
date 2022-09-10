@@ -7,9 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {}
   }
   tbl_products.init({
-    uuid: DataTypes.STRING,
+    id: DataTypes.BIGINT,
     name: DataTypes.STRING,
-    del_status: DataTypes.BOOLEAN,
+    qty: DataTypes.INT,
+    picture: DataTypes.TEXT,
+    expiredAt: DataTypes.DATEONLY,
+    isActive: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'tbl_products',
