@@ -11,7 +11,7 @@ module.exports = {
         id: data.id,
         name: data.name,
         qty: data.qty,
-        picture: null,
+        picture: data.picture !== null ? `/picture/product/img-product-${data.id}.png` : null,
         expiredAt: data.expired_at,
         isActive: data.is_active,
       }));
