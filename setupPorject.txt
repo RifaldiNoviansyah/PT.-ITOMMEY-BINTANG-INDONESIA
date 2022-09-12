@@ -1,0 +1,11 @@
+1. buat databases dengan postgresql name test_dev_ptItommeyBintangIndonesia
+2. git clone https://github.com/RifaldiNoviansyah/PT.-ITOMMEY-BINTANG-INDONESIA.git
+3. sesudah git clone karena node_modules di git ignore buka terminal di dalam folder PT_ITOMMEY_BINTANG_INDONESIA
+   lalu ketikan perintah npm i
+4. lalu ketikan npx sequelize-cli db:migrate
+5. lalu ketikan npx sequelize-cli db:seed:all
+6. jika tidak menggunakan swagger didalam folder filePendukungPostmanDanDatabases ada backup collection postman test pt itommey bintang indonesia.postman_collection.json 
+   tinggal import saja di postmannya
+7. jika tidak akan melakukan langkah no 4 dan 5 bisa langsung export databases saja  didalam folder filePendukungPostmanDanDatabases ada backup
+   databases test_dev_ptItommeyBintangIndonesia.sql tinggal export saja di pgadmin atau dbeaver 
+8. jika menggunkan swagger bisa di buka dengan link http://localhost:3000/api-docs
